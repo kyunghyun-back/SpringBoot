@@ -26,7 +26,7 @@ public class SecurityConfig {
 					.csrf(csrf->csrf.disable())
 					.authorizeHttpRequests(request->{
 						request.requestMatchers("/").permitAll()
-						.requestMatchers(req->CorsUtils.isPreFlightRequest(req).permitAll()
+						.requestMatchers(req->CorsUtils.isPreFlightRequest(req)).permitAll()
 						//CorsUtils::isPreFlightRequest).permitAll()
 						.requestMatchers("/WEB-INF/views/**").permitAll()
 						.requestMatchers("/members").hasAnyAuthority(MyAuthority.ADMIN.name())
